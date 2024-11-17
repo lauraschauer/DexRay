@@ -1,6 +1,6 @@
 import sys
 import math
-from androguard.core.bytecodes.apk import APK
+from androguard.core.apk import APK
 from PIL import Image
 
 def get_dex_bytes(apk: APK) -> bytes:

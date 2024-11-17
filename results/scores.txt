@@ -1,0 +1,2 @@
+Scores of the performance evaluation are: Accuracy, Precision, Recall, F1-score
+Run: 1 
