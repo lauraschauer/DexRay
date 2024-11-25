@@ -3,7 +3,8 @@ import tensorflow as tf
 import random as python_random
 import tensorflow_addons as tfa
 import tensorflow.keras as keras
-from PIL import Image
+from PIL import Image, ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 random_seed = 123456
 
@@ -72,8 +73,8 @@ def decode_img(path_img):
     image = tf.numpy_function(get_image, [path_img], tf.uint8)
     shape = tf.numpy_function(get_shape, [image], tf.int64)
     image = tf.reshape(image, [shape, 1, 1])
-    image = tf.image.convert_image_dtype(image, tf.float32)
-    image = tf.image.resize(image, [IMG_SIZE * IMG_SIZE, 1])
+    image = tf.image.convert_image_dtype(image, tf.float32) 
+    image = tf.image.resize(image, [IMG_SIZE * IMG_SIZE, 1]) # image resizing happens here! 
     return tf.reshape(image, [IMG_SIZE * IMG_SIZE, 1])
 
 
